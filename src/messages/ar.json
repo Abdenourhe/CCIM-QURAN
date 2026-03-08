@@ -1,0 +1,259 @@
+{
+    "common": {
+        "appName": "AntiGravity",
+        "loading": "جارٍ التحميل...",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف",
+        "edit": "تعديل",
+        "add": "إضافة",
+        "search": "بحث",
+        "noData": "لا توجد بيانات متاحة",
+        "error": "حدث خطأ ما",
+        "success": "تمت العملية بنجاح",
+        "phone": "الهاتف",
+        "gender": "الجنس",
+        "male": "ذكر",
+        "female": "أنثى",
+        "role": "الدور",
+        "name": "الاسم الكامل",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "dateOfBirth": "تاريخ الميلاد",
+        "status": "الحالة",
+        "active": "نشط",
+        "inactive": "غير نشط",
+        "actions": "الإجراءات",
+        "back": "رجوع",
+        "next": "التالي",
+        "previous": "السابق",
+        "submit": "إرسال",
+        "close": "إغلاق",
+        "confirm": "تأكيد",
+        "yes": "نعم",
+        "no": "لا",
+        "all": "الكل",
+        "none": "لا شيء",
+        "select": "اختيار",
+        "required": "إلزامي",
+        "optional": "اختياري",
+        "description": "الوصف",
+        "createdAt": "تاريخ الإنشاء",
+        "updatedAt": "تاريخ التحديث",
+        "noResults": "لم يتم العثور على نتائج",
+        "loadingData": "جارٍ تحميل البيانات...",
+        "export": "تصدير",
+        "import": "استيراد",
+        "download": "تحميل",
+        "upload": "رفع"
+    },
+    "nav": {
+        "dashboard": "لوحة القيادة",
+        "students": "الطلاب",
+        "teachers": "المعلمون",
+        "groups": "المجموعات",
+        "evaluations": "التقييمات",
+        "attendance": "الحضور",
+        "progress": "التقدم",
+        "badges": "الشارات",
+        "announcements": "الإعلانات",
+        "reports": "التقارير",
+        "settings": "الإعدادات",
+        "profile": "الملف الشخصي",
+        "logout": "تسجيل الخروج",
+        "users": "المستخدمون",
+        "children": "أبنائي",
+        "recitation": "التسميع"
+    },
+    "auth": {
+        "login": "تسجيل الدخول",
+        "register": "التسجيل",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "confirmPassword": "تأكيد كلمة المرور",
+        "name": "الاسم الكامل",
+        "forgotPassword": "نسيت كلمة المرور؟",
+        "noAccount": "ليس لديك حساب بعد؟",
+        "hasAccount": "لديك حساب بالفعل؟",
+        "signIn": "تسجيل الدخول",
+        "signUp": "التسجيل",
+        "loggingIn": "...",
+        "جارٍ تسجيل الدخولregistering": "جارٍ التسجيل...",
+        "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+        "registrationSuccess": "تم إنشاء الحساب بنجاح",
+        "emailAlreadyExists": "هذا البريد الإلكتروني مستخدم بالفعل",
+        "logoutSuccess": "تم تسجيل الخروج بنجاح",
+        "sessionExpired": "انتهت جلستك",
+        "accessDenied": "تم رفض الوصول"
+    },
+    "dashboard": {
+        "welcome": "أهلاً وسهلاً",
+        "totalStudents": "إجمالي الطلاب",
+        "totalTeachers": "إجمالي المعلمين",
+        "presentToday": "الحاضرون اليوم",
+        "averageProgress": "متوسط ​​التقدم",
+        "overview": "نظرة عامة",
+        "quickActions": "إجراءات سريعة",
+        "recentActivity": "النشاط الأخير",
+        "statistics": "الإحصائيات",
+        "totalUsers": "إجمالي المستخدمين",
+        "activeGroups": "المجموعات النشطة"
+    },
+    "roles": {
+        "ADMIN": "مدير",
+        "TEACHER": "معلم",
+        "STUDENT": "طالب",
+        "PARENT": "ولي أمر"
+    },
+    "admin": {
+        "title": "الإدارة",
+        "users": {
+            "title": "إدارة المستخدمين",
+            "description": "إدارة مستخدمي النظام",
+            "addUser": "إضافة مستخدم",
+            "editUser": "تعديل المستخدم",
+            "deleteUser": "حذف المستخدم",
+            "confirmDelete": "هل أنت متأكد أنك تريد حذف هذا المستخدم؟",
+            "noUsers": "لم يتم العثور على مستخدمين",
+            "selectRole": "اختر الدور"
+        },
+        "groups": {
+            "title": "إدارة المجموعات",
+            "description": "إدارة مجموعات الطلاب",
+            "addGroup": "إضافة مجموعة",
+            "editGroup": "تعديل المجموعة",
+            "deleteGroup": "حذف المجموعة",
+            "noGroups": "لم يتم العثور على مجموعات",
+            "groupName": "اسم المجموعة",
+            "capacity": "ال السعة"
+        },
+        "announcements": {
+            "title": "إدارة الإعلانات",
+            "description": "نشر الإعلانات",
+            "addAnnouncement": "إضافة إعلان",
+            "editAnnouncement": "تعديل الإعلان",
+            "deleteAnnouncement": "حذف الإعلان",
+            "noAnnouncements": "لم يتم العثور على إعلانات",
+            "titleField": "العنوان",
+            "content": "المحتوى"
+        },
+        "reports": {
+            "title": "التقارير والإحصائيات",
+            "description": "عرض تقارير النظام",
+            "exportCSV": "تصدير إلى CSV",
+            "exportPDF": "تصدير إلى PDF"
+        },
+        "settings": {
+            "title": "إعدادات النظام",
+            "description": "تكوين الإعدادات",
+            "general": "عام",
+            "security": "الأمان",
+            "notifications": "الإشعارات"
+        }
+    },
+    "teacher": {
+        "title": "مساحة المعلم",
+        "myStudents": "طلابنا",
+        "myGroups": "مجموعاتي",
+        "attendance": {
+            "title": "إدارة الحضور",
+            "markPresent": "تحديد الحاضر",
+            "markAbsent": "تحديد الغائب",
+            "selectDate": "اختر التاريخ",
+            "selectGroup": "اختر المجموعة"
+        },
+        "evaluations": {
+            "title": "التقييمات",
+            "addEvaluation": "إضافة تقييم",
+            "editEvaluation": "تعديل التقييم",
+            "noEvaluations": "لم يتم العثور على تقييمات",
+            "score": "النتيجة",
+            "notes": "ملاحظات",
+            "criteria": "المعايير"
+        },
+        "students": {
+            "title": "طلابنا",
+            "noStudents": "لم يتم العثور على طلاب"
+        },
+        "groups": {
+            "title": "مجموعاتي",
+            "noGroups": "لم يتم العثور على مجموعات"
+        },
+        "announcements": {
+            "title": "الإعلانات",
+            "noAnnouncements": "لا توجد إعلانات"
+        }
+    },
+    "student": {
+        "title": "مساحة الطالب",
+        "myProgress": "تقدمي",
+        "myBadges": "شاراتي",
+        "myRecitations": "تسميعاتي",
+        "practice": "التدريب",
+        "viewProgress": "عرض تقدمي",
+        "viewBadges": "عرض شاراتي",
+        "noBadges": "لم يتم الحصول على شارات",
+        "progress": {
+            "title": "تقدمي",
+            "memorized": "الآيات المحفوظة",
+            "reviewed": "المراجعات المنجزة",
+            "accuracy": "الدقة"
+        },
+        "profile": {
+            "title": "ملفي",
+            "editProfile": "تعديل ملفي"
+        },
+        "recitation": {
+            "title": "التسميع",
+            "startPractice": "ابدأ التدريب",
+            "recordRecitation": "تسجيل التسميع"
+        },
+        "badges": {
+            "title": "الشارات",
+            "achievements": "الإنجازات",
+            "unlocked": "مفتوح",
+            "locked": "مغلق"
+        }
+    },
+    "parent": {
+        "title": "مساحة ولي الأمر",
+        "myChildren": "أبنائي",
+        "childProgress": "تقدم الطفل",
+        "selectChild": "اختر طفلاً",
+        "noChildren": "لا يوجد أطفال مسجلون",
+        "children": {
+            "title": "أبنائي",
+            "addChild": "إضافة طفل",
+            "noChildren": "لم يتم العثور على أطفال"
+        },
+        "progress": {
+            "title": "متابعة التقدم",
+            "viewProgress": "عرض التقدم",
+            "noProgress": "لا يوجد تقدم متاح"
+        },
+        "attendance": {
+            "title": "الحضور",
+            "viewAttendance": "عرض الحضور"
+        },
+        "announcements": {
+            "title": "الإعلانات",
+            "noAnnouncements": "لا توجد إعلانات"
+        }
+    },
+    "validation": {
+        "required": "هذا الحقل إلزامي",
+        "invalidEmail": "بريد إلكتروني غير صالح",
+        "passwordTooShort": "يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل",
+        "passwordMismatch": "كلمتا المرور غير متطابقتين",
+        "invalidDate": "تاريخ غير صالح"
+    },
+    "messages": {
+        "savedSuccess": "تم الحفظ بنجاح",
+        "deletedSuccess": "تم الحذف بنجاح",
+        "updatedSuccess": "تم التحديث بنجاح",
+        "errorOccurred": "حدث خطأ",
+        "confirmAction": "هل أنت متأكد أنك تريد تنفيذ هذا الإجراء؟",
+        "noPermission": "ليس لديك إذن لتنفيذ هذا الإجراء"
+    }
+}

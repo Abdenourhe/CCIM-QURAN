@@ -1,0 +1,268 @@
+{
+    "common": {
+        "appName": "CCI_Montmagny",
+        "loading": "Chargement...",
+        "save": "Enregistrer",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "edit": "Modifier",
+        "add": "Ajouter",
+        "search": "Rechercher",
+        "noData": "Aucune donnée disponible",
+        "error": "Une erreur est survenue",
+        "success": "Opération réussie",
+        "phone": "Téléphone",
+        "gender": "Genre",
+        "male": "Homme",
+        "female": "Femme",
+        "role": "Rôle",
+        "name": "Nom complet",
+        "email": "Adresse e-mail",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "dateOfBirth": "Date de naissance",
+        "status": "Statut",
+        "active": "Actif",
+        "inactive": "Inactif",
+        "actions": "Actions",
+        "back": "Retour",
+        "next": "Suivant",
+        "previous": "Précédent",
+        "submit": "Soumettre",
+        "close": "Fermer",
+        "confirm": "Confirmer",
+        "yes": "Oui",
+        "no": "Non",
+        "all": "Tous",
+        "none": "Aucun",
+        "select": "Sélectionner",
+        "required": "Obligatoire",
+        "optional": "Facultatif",
+        "description": "Description",
+        "createdAt": "Créé le",
+        "updatedAt": "Mis à jour le",
+        "noResults": "Aucun résultat trouvé",
+        "loadingData": "Chargement des données...",
+        "export": "Exporter",
+        "import": "Importer",
+        "download": "Télécharger",
+        "upload": "Téléverser"
+    },
+    "nav": {
+        "dashboard": "Tableau de bord",
+        "students": "Élèves",
+        "teachers": "Enseignants",
+        "groups": "Groupes",
+        "evaluations": "Évaluations",
+        "attendance": "Présences",
+        "progress": "Progression",
+        "badges": "Badges",
+        "announcements": "Annonces",
+        "reports": "Rapports",
+        "settings": "Paramètres",
+        "profile": "Profil",
+        "logout": "Déconnexion",
+        "users": "Utilisateurs",
+        "children": "Mes enfants",
+        "recitation": "Récitation"
+    },
+    "auth": {
+        "login": "Connexion",
+        "register": "Inscription",
+        "email": "Adresse e-mail",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "name": "Nom complet",
+        "forgotPassword": "Mot de passe oublié ?",
+        "resetPassword": "Réinitialiser le mot de passe",
+        "noAccount": "Pas encore de compte ?",
+        "hasAccount": "Déjà un compte ?",
+        "signIn": "Se connecter",
+        "signUp": "S'inscrire",
+        "loggingIn": "Connexion en cours...",
+        "registering": "Inscription en cours...",
+        "invalidCredentials": "Email ou mot de passe invalide",
+        "registrationSuccess": "Compte créé avec succès",
+        "emailAlreadyExists": "Cet email est déjà utilisé",
+        "logoutSuccess": "Déconnexion réussie",
+        "sessionExpired": "Votre session a expiré",
+        "accessDenied": "Accès refusé",
+        "forgotPasswordTitle": "Mot de passe oublié",
+        "forgotPasswordDesc": "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+        "resetPasswordTitle": "Réinitialiser le mot de passe",
+        "resetPasswordDesc": "Entrez votre nouveau mot de passe.",
+        "resetEmailSent": "Un e-mail de réinitialisation a été envoyé à votre adresse.",
+        "passwordResetSuccess": "Votre mot de passe a été réinitialisé avec succès.",
+        "resetPassword": "Réinitialiser",
+        "backToLogin": "Retour à la connexion"
+    },
+    "dashboard": {
+        "welcome": "Bienvenue",
+        "totalStudents": "Total élèves",
+        "totalTeachers": "Total enseignants",
+        "presentToday": "Présents aujourd'hui",
+        "averageProgress": "Progression moyenne",
+        "overview": "Vue d'ensemble",
+        "quickActions": "Actions rapides",
+        "recentActivity": "Activité récente",
+        "statistics": "Statistiques",
+        "totalUsers": "Total utilisateurs",
+        "activeGroups": "Groupes actifs"
+    },
+    "roles": {
+        "ADMIN": "Administrateur",
+        "TEACHER": "Enseignant",
+        "STUDENT": "Élève",
+        "PARENT": "Parent"
+    },
+    "admin": {
+        "title": "Administration",
+        "users": {
+            "title": "Gestion des utilisateurs",
+            "description": "Gérer les utilisateurs du système",
+            "addUser": "Ajouter un utilisateur",
+            "editUser": "Modifier l'utilisateur",
+            "deleteUser": "Supprimer l'utilisateur",
+            "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+            "noUsers": "Aucun utilisateur trouvé",
+            "selectRole": "Sélectionner le rôle"
+        },
+        "groups": {
+            "title": "Gestion des groupes",
+            "description": "Gérer les groupes d'élèves",
+            "addGroup": "Ajouter un groupe",
+            "editGroup": "Modifier le groupe",
+            "deleteGroup": "Supprimer le groupe",
+            "noGroups": "Aucun groupe trouvé",
+            "groupName": "Nom du groupe",
+            "capacity": "Capacité"
+        },
+        "announcements": {
+            "title": "Gestion des annonces",
+            "description": "Publier des annonces",
+            "addAnnouncement": "Ajouter une annonce",
+            "editAnnouncement": "Modifier l'annonce",
+            "deleteAnnouncement": "Supprimer l'annonce",
+            "noAnnouncements": "Aucune annonce trouvée",
+            "titleField": "Titre",
+            "content": "Contenu"
+        },
+        "reports": {
+            "title": "Rapports et statistiques",
+            "description": "Consulter les rapports du système",
+            "exportCSV": "Exporter en CSV",
+            "exportPDF": "Exporter en PDF"
+        },
+        "settings": {
+            "title": "Paramètres du système",
+            "description": "Configurer les paramètres",
+            "general": "Général",
+            "security": "Sécurité",
+            "notifications": "Notifications"
+        }
+    },
+    "teacher": {
+        "title": "Espace Enseignant",
+        "myStudents": "Mes élèves",
+        "myGroups": "Mes groupes",
+        "attendance": {
+            "title": "Gestion des présences",
+            "markPresent": "Marquer présent",
+            "markAbsent": "Marquer absent",
+            "selectDate": "Sélectionner une date",
+            "selectGroup": "Sélectionner un groupe"
+        },
+        "evaluations": {
+            "title": "Évaluations",
+            "addEvaluation": "Ajouter une évaluation",
+            "editEvaluation": "Modifier l'évaluation",
+            "noEvaluations": "Aucune évaluation trouvée",
+            "score": "Score",
+            "notes": "Notes",
+            "criteria": "Critères"
+        },
+        "students": {
+            "title": "Mes élèves",
+            "noStudents": "Aucun élève trouvé"
+        },
+        "groups": {
+            "title": "Mes groupes",
+            "noGroups": "Aucun groupe trouvé"
+        },
+        "announcements": {
+            "title": "Annonces",
+            "noAnnouncements": "Aucune annonce"
+        }
+    },
+    "student": {
+        "title": "Espace Élève",
+        "myProgress": "Ma progression",
+        "myBadges": "Mes badges",
+        "myRecitations": "Mes récitations",
+        "practice": "Pratique",
+        "viewProgress": "Voir ma progression",
+        "viewBadges": "Voir mes badges",
+        "noBadges": "Aucun badge obtenu",
+        "progress": {
+            "title": "Ma progression",
+            "memorized": "Versets mémorisés",
+            "reviewed": "Révisions effectuées",
+            "accuracy": "Précision"
+        },
+        "profile": {
+            "title": "Mon profil",
+            "editProfile": "Modifier mon profil"
+        },
+        "recitation": {
+            "title": "Récitation",
+            "startPractice": "Commencer la pratique",
+            "recordRecitation": "Enregistrer la récitation"
+        },
+        "badges": {
+            "title": "Badges",
+            "achievements": "Réalisations",
+            "unlocked": "Déverrouillé",
+            "locked": "Verrouillé"
+        }
+    },
+    "parent": {
+        "title": "Espace Parent",
+        "myChildren": "Mes enfants",
+        "childProgress": "Progression de l'enfant",
+        "selectChild": "Sélectionner un enfant",
+        "noChildren": "Aucun enfant enregistré",
+        "children": {
+            "title": "Mes enfants",
+            "addChild": "Ajouter un enfant",
+            "noChildren": "Aucun enfant trouvé"
+        },
+        "progress": {
+            "title": "Suivi de progression",
+            "viewProgress": "Voir la progression",
+            "noProgress": "Aucune progression disponible"
+        },
+        "attendance": {
+            "title": "Présences",
+            "viewAttendance": "Voir les présences"
+        },
+        "announcements": {
+            "title": "Annonces",
+            "noAnnouncements": "Aucune annonce"
+        }
+    },
+    "validation": {
+        "required": "Ce champ est obligatoire",
+        "invalidEmail": "Adresse email invalide",
+        "passwordTooShort": "Le mot de passe doit contenir au moins 8 caractères",
+        "passwordMismatch": "Les mots de passe ne correspondent pas",
+        "invalidDate": "Date invalide"
+    },
+    "messages": {
+        "savedSuccess": "Enregistré avec succès",
+        "deletedSuccess": "Supprimé avec succès",
+        "updatedSuccess": "Mis à jour avec succès",
+        "errorOccurred": "Une erreur s'est produite",
+        "confirmAction": "Êtes-vous sûr de vouloir effectuer cette action ?",
+        "noPermission": "Vous n'avez pas la permission d'effectuer cette action"
+    }
+}

@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 142 76% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 142 76% 10%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 142 76% 10%;
+        --primary: 142 76% 16%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 43 74% 52%;
+        --secondary-foreground: 142 76% 10%;
+        --muted: 60 4.8% 95.9%;
+        --muted-foreground: 25 5.3% 44.7%;
+        --accent: 43 74% 52%;
+        --accent-foreground: 142 76% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 20 5.9% 90%;
+        --input: 20 5.9% 90%;
+        --ring: 142 76% 16%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 142 76% 5%;
+        --foreground: 0 0% 98%;
+        --card: 142 76% 7%;
+        --card-foreground: 0 0% 98%;
+        --popover: 142 76% 7%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 43 74% 52%;
+        --primary-foreground: 142 76% 10%;
+        --secondary: 142 30% 20%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 142 30% 15%;
+        --muted-foreground: 0 0% 63.9%;
+        --accent: 43 74% 52%;
+        --accent-foreground: 142 76% 10%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 142 30% 20%;
+        --input: 142 30% 20%;
+        --ring: 43 74% 52%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+
+    /* Arabic RTL support */
+    [dir="rtl"] {
+        font-family: "Noto Naskh Arabic", "Amiri", serif;
+    }
+}

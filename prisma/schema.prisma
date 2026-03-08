@@ -1,0 +1,255 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ──────────────────────────────────────────────
+// Models
+// ──────────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          String    @default("STUDENT")
+  locale        String    @default("fr")
+  phone         String?
+  gender        String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts      Account[]
+  sessions      Session[]
+
+  // Role-specific profiles
+  studentProfile  Student?
+  teacherProfile  Teacher?
+  parentProfile   Parent?
+  adminProfile    Admin?
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Admin {
+  id     String @id @default(cuid())
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("admins")
+}
+
+model Teacher {
+  id          String  @id @default(cuid())
+  userId      String  @unique
+  speciality  String?
+  bio         String?
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  groups      Group[]
+  evaluations Evaluation[]
+  attendance  Attendance[]
+
+  @@map("teachers")
+}
+
+model Parent {
+  id     String @id @default(cuid())
+  userId String @unique
+  phone  String?
+
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  children Student[] @relation("ParentChildren")
+
+  @@map("parents")
+}
+
+model Student {
+  id          String    @id @default(cuid())
+  userId      String    @unique
+  dateOfBirth DateTime?
+  enrolledAt  DateTime  @default(now())
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parents     Parent[]     @relation("ParentChildren")
+  groupId     String?
+  group       Group?       @relation(fields: [groupId], references: [id])
+  evaluations Evaluation[]
+  attendance  Attendance[]
+  progress    Progress[]
+  badges      StudentBadge[]
+
+  @@map("students")
+}
+
+model Group {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  teacherId   String
+  createdAt   DateTime @default(now())
+
+  teacher    Teacher    @relation(fields: [teacherId], references: [id])
+  students   Student[]
+  attendance Attendance[]
+
+  @@map("groups")
+}
+
+model Evaluation {
+  id          String   @id @default(cuid())
+  studentId   String
+  teacherId   String
+  surahNumber Int
+  verseFrom   Int
+  verseTo     Int
+  grade       String
+  tajweed     Int
+  fluency     Int
+  makharij    Int
+  notes       String?
+  evaluatedAt DateTime @default(now())
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  teacher Teacher @relation(fields: [teacherId], references: [id])
+
+  @@map("evaluations")
+}
+
+model Attendance {
+  id        String   @id @default(cuid())
+  studentId String
+  teacherId String
+  groupId   String
+  date      DateTime
+  status    String   @default("PRESENT")
+  notes     String?
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  teacher Teacher @relation(fields: [teacherId], references: [id])
+  group   Group   @relation(fields: [groupId], references: [id])
+
+  @@unique([studentId, date])
+  @@map("attendance")
+}
+
+model Progress {
+  id              String   @id @default(cuid())
+  studentId       String
+  surahNumber     Int
+  surahName       String
+  versesTotal     Int
+  versesMemorized Int      @default(0)
+  percentage      Float    @default(0)
+  lastUpdated     DateTime @default(now()) @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, surahNumber])
+  @@map("progress")
+}
+
+model Badge {
+  id            String @id @default(cuid())
+  name          String
+  nameAr        String
+  description   String
+  descriptionAr String
+  icon          String
+  type          String
+  criteria      String // JSON stored as string for SQLite
+
+  students StudentBadge[]
+
+  @@map("badges")
+}
+
+model StudentBadge {
+  id        String   @id @default(cuid())
+  studentId String
+  badgeId   String
+  earnedAt  DateTime @default(now())
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  badge   Badge   @relation(fields: [badgeId], references: [id])
+
+  @@unique([studentId, badgeId])
+  @@map("student_badges")
+}
+
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  titleAr   String?
+  content   String
+  contentAr String?
+  target    String   @default("ALL")
+  groupId   String?
+  authorId  String
+  pinned    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("announcements")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String
+  entity    String
+  entityId  String?
+  details   String?  // JSON stored as string for SQLite
+  ipAddress String?
+  createdAt DateTime @default(now())
+
+  @@map("audit_logs")
+}
