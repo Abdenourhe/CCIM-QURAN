@@ -931,9 +931,9 @@ export async function getParentAnnouncements(
             include: {
                 group: true,
             },
-        });
+        } as any);
 
-        return announcements.map(a => ({
+        return (announcements as any[]).map(a => ({
             id: a.id,
             title: a.title,
             titleAr: a.titleAr,
@@ -941,7 +941,7 @@ export async function getParentAnnouncements(
             contentAr: a.contentAr,
             target: a.target,
             groupId: a.groupId,
-            groupName: a.group?.name || null,
+            groupName: (a as any).group?.name || null,
             authorName: "Admin", // Would need to include author
             createdAt: a.createdAt,
             isPinned: a.pinned,

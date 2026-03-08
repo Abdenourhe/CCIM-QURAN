@@ -21,6 +21,21 @@ import {
 } from "@/app/actions/student";
 import { useToast } from "@/hooks/use-toast";
 
+// History item interface - matches what getRecitationHistory returns
+interface RecitationHistoryItem {
+    id: string;
+    surahName: string;
+    verseRange: string;
+    date: string;
+    score: number;
+    grade: string;
+    teacherName: string;
+    strengths: string[];
+    improvements: string[];
+    notes?: string;
+    feedback?: string;
+}
+
 // Translation function
 function getTranslations(locale: string) {
     const translations: Record<string, Record<string, string>> = {
@@ -135,7 +150,7 @@ export default function StudentRecitationPage() {
 
     const [currentSurah, setCurrentSurah] = useState<SurahProgress | undefined>();
     const [pendingSubmissions, setPendingSubmissions] = useState<RecitationSubmission[]>([]);
-    const [history, setHistory] = useState<RecitationSubmission[]>([]);
+    const [history, setHistory] = useState<RecitationHistoryItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [submitting, setSubmitting] = useState(false);
     const [versesReady, setVersesReady] = useState("");
@@ -153,8 +168,8 @@ export default function StudentRecitationPage() {
                     setCurrentSurah(progressData.currentSurah);
                     setPendingSubmissions(pending.filter(s =>
                         s.status === "READY_FOR_RECITATION" || s.status === "PENDING_TEACHER_APPROVAL"
-                    ));
-                    setHistory(historyData);
+                    ) as unknown as RecitationSubmission[]);
+                    setHistory(historyData as unknown as RecitationHistoryItem[]);
                 } catch (error) {
                     console.error("Error fetching recitation data:", error);
                 }

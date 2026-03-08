@@ -116,11 +116,6 @@ function GroupsContent() {
         teacherId: "",
     });
 
-    useEffect(() => {
-        loadGroups();
-        loadTeachers();
-    }, [search, page]);
-
     const loadGroups = async () => {
         setLoading(true);
         const result = await getGroups({ search, page, limit: 10 });
@@ -135,6 +130,11 @@ function GroupsContent() {
         const result = await getTeachers();
         setTeachers(result);
     };
+
+    useEffect(() => {
+        loadGroups();
+        loadTeachers();
+    }, [search, page]);
 
     const handleOpenDialog = (group?: Group) => {
         if (group) {

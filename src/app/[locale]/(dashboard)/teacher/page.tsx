@@ -118,7 +118,7 @@ function DashboardContent() {
                 // For now, we'll use a placeholder
                 const teacherId = session?.user?.id || "teacher-1";
                 const data = await getTeacherDashboardStats(teacherId);
-                setStats(data);
+                setStats(data as unknown as DashboardStats | null);
             } catch (err) {
                 setError("Failed to load dashboard data");
                 console.error(err);

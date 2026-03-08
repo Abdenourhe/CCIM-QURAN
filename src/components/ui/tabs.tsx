@@ -10,14 +10,14 @@ interface TabsContextValue {
 
 const TabsContext = React.createContext<TabsContextValue | undefined>(undefined);
 
-interface TabsProps {
+interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     defaultValue?: string;
     value?: string;
     onValueChange?: (value: string) => void;
 }
 
-function Tabs({ children, defaultValue = "", value, onValueChange }: TabsProps) {
+function Tabs({ children, defaultValue = "", value, onValueChange, className }: TabsProps) {
     const [internalValue, setInternalValue] = React.useState(defaultValue);
 
     const isControlled = value !== undefined;
@@ -32,7 +32,7 @@ function Tabs({ children, defaultValue = "", value, onValueChange }: TabsProps) 
 
     return (
         <TabsContext.Provider value={{ value: currentValue, onValueChange: handleValueChange }}>
-            <div className={cn("w-full")}>{children}</div>
+            <div className={cn("w-full", className)}>{children}</div>
         </TabsContext.Provider>
     );
 }

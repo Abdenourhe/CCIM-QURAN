@@ -30,9 +30,21 @@ function Dialog({ children, open, onOpenChange }: DialogProps) {
     );
 }
 
-function DialogTrigger({ children }: { children: React.ReactNode }) {
+function DialogTrigger({ children, asChild }: { children: React.ReactNode; asChild?: boolean }) {
     const context = React.useContext(DialogContext);
     if (!context) throw new Error("DialogTrigger must be used within Dialog");
+
+    if (asChild) {
+        // When asChild is true, return the child with the onClick handler
+        return React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+                return React.cloneElement(child as React.ReactElement<any>, {
+                    onClick: () => context.setOpen(true),
+                });
+            }
+            return child;
+        });
+    }
 
     return (
         <div onClick={() => context.setOpen(true)} className="inline-block">

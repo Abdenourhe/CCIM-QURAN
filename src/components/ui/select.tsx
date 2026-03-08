@@ -5,10 +5,11 @@ import { cn } from "@/lib/utils";
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
     children: React.ReactNode;
+    onValueChange?: (value: string) => void;
 }
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-    ({ className, children, ...props }, ref) => {
+    ({ className, children, onValueChange, ...props }, ref) => {
         return (
             <select
                 className={cn(
@@ -16,6 +17,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
                     className
                 )}
                 ref={ref}
+                onChange={(e) => onValueChange?.(e.target.value)}
                 {...props}
             >
                 {children}

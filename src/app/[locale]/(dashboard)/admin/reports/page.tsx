@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { getStudentReports, getTeacherReports, getGroupReports } from "@/app/actions/admin";
 import { Button } from "@/components/ui/button";
@@ -111,24 +111,24 @@ function ReportsContent() {
     const [groupReports, setGroupReports] = useState<GroupReport[]>([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        loadReports();
-    }, [activeTab]);
-
-    const loadReports = async () => {
+    const loadReports = useCallback(async () => {
         setLoading(true);
         if (activeTab === "students") {
             const data = await getStudentReports();
-            setStudentReports(data as StudentReport[]);
+            setStudentReports(data as unknown as StudentReport[]);
         } else if (activeTab === "teachers") {
             const data = await getTeacherReports();
-            setTeacherReports(data as TeacherReport[]);
+            setTeacherReports(data as unknown as TeacherReport[]);
         } else if (activeTab === "groups") {
             const data = await getGroupReports();
-            setGroupReports(data as GroupReport[]);
+            setGroupReports(data as unknown as GroupReport[]);
         }
         setLoading(false);
-    };
+    }, [activeTab]);
+
+    useEffect(() => {
+        loadReports();
+    }, [loadReports]);
 
     const handleExportCSV = () => {
         let csvContent = "";

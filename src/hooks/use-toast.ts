@@ -2,7 +2,7 @@
 
 import React from "react";
 
-export type ToastVariant = "default" | "success" | "error" | "warning";
+export type ToastVariant = "default" | "success" | "error" | "warning" | "destructive";
 
 export interface Toast {
     id: string;

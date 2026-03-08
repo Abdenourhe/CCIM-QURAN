@@ -23,6 +23,12 @@ export const updateUserSchema = z.object({
     email: z.string().email().optional(),
     image: z.string().url().optional(),
     locale: z.enum(["fr", "ar"]).optional(),
+    phone: z.string().optional(),
+    gender: z.enum(["MALE", "FEMALE"]).optional(),
+    isActive: z.boolean().optional(),
+    role: z.enum(["PARENT", "STUDENT", "TEACHER"]).optional(),
+    bio: z.string().optional(),
+    specialization: z.string().optional(),
 });
 
 export type LoginInput = z.infer<typeof loginSchema>;

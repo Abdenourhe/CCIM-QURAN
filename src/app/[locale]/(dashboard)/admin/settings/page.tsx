@@ -183,7 +183,7 @@ function SettingsContent() {
                 <Card>
                     <CardHeader>
                         <CardTitle>{t.general}</CardTitle>
-                        <CardDescription>Paramètres généraux de l'application</CardDescription>
+                        <CardDescription>Paramètres généraux de l{"'"}application</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div>
@@ -259,7 +259,7 @@ function SettingsContent() {
                         <div className="flex items-center justify-between">
                             <div>
                                 <p className="font-medium">{t.newStudent}</p>
-                                <p className="text-sm text-muted-foreground">Recevoir un email quand un nouvel étudiant s'inscrit</p>
+                                <p className="text-sm text-muted-foreground">Recevoir un email quand un nouvel étudiant s{"'"}inscrit</p>
                             </div>
                             <input
                                 type="checkbox"

@@ -428,7 +428,7 @@ export default function StudentProfilePage() {
                                 <div>
                                     <p className="font-medium">{t.notificationsEnabled}</p>
                                     <p className="text-sm text-muted-foreground">
-                                        Recevoir des notifications dans l'application
+                                        Recevoir des notifications dans l{"'"}application
                                     </p>
                                 </div>
                                 <Button

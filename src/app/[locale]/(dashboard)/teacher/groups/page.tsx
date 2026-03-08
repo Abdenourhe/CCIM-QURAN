@@ -249,7 +249,7 @@ function GroupsContent() {
                                                     <>
                                                         <p className="text-sm">{student.progress.surahName}</p>
                                                         <Progress
-                                                            value={student.progress.percentage}
+                                                            value={student.progress.percentage ?? 0}
                                                             className="h-2 w-20"
                                                         />
                                                     </>

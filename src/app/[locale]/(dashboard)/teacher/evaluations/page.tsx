@@ -193,7 +193,7 @@ function EvaluationsContent() {
                     getTeacherStudents(teacherId),
                     getTeacherGroups(teacherId),
                 ]);
-                setEvaluations(evaluationsData.evaluations);
+                setEvaluations(evaluationsData.evaluations as unknown as Evaluation[]);
                 setTotal(evaluationsData.total);
                 setStudents(studentsData as Student[]);
                 setGroups(groupsData);
@@ -233,7 +233,7 @@ function EvaluationsContent() {
                 // Refresh evaluations
                 const teacherId = session?.user?.id || "teacher-1";
                 const data = await getEvaluationsByTeacher(teacherId, {}, page, 20);
-                setEvaluations(data.evaluations);
+                setEvaluations(data.evaluations as unknown as Evaluation[]);
                 setFormData({
                     memorizationScore: 80,
                     tajweedScore: 80,

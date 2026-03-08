@@ -24,9 +24,20 @@ function DropdownMenu({ children }: DropdownMenuProps) {
     );
 }
 
-function DropdownMenuTrigger({ children }: { children: React.ReactNode }) {
+function DropdownMenuTrigger({ children, asChild }: { children: React.ReactNode; asChild?: boolean }) {
     const context = React.useContext(DropdownMenuContext);
     if (!context) throw new Error("DropdownMenuTrigger must be used within DropdownMenu");
+
+    if (asChild) {
+        return React.Children.map(children, (child) => {
+            if (React.isValidElement(child)) {
+                return React.cloneElement(child as React.ReactElement<any>, {
+                    onClick: () => context.setOpen(true),
+                });
+            }
+            return child;
+        });
+    }
 
     return (
         <button

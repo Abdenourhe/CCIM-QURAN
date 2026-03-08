@@ -555,7 +555,7 @@ export async function getAnnouncements(filters?: {
                         },
                     },
                 },
-            }),
+            } as any),
             prisma.announcement.count({ where }),
         ]);
 
@@ -587,7 +587,7 @@ export async function getAnnouncementById(id: string) {
                     },
                 },
             },
-        });
+        } as any);
 
         return announcement;
     } catch (error) {
@@ -731,7 +731,7 @@ export async function getTeacherReports() {
             const profile = teacher.teacherProfile;
             if (!profile) return null;
 
-            const totalStudents = profile.groups.reduce((acc: number, g: { students: unknown[] }) => acc + (g.students?.length || 0), 0);
+            const totalStudents = (profile.groups as unknown as Array<{ students?: unknown[] }>).reduce((acc, g) => acc + (g.students?.length || 0), 0);
             const evaluationsThisMonth = profile.evaluations.length;
 
             return {

@@ -322,7 +322,7 @@ export default function StudentProgressPage() {
                                             bgClass = "bg-emerald-500 hover:bg-emerald-600 text-white";
                                         } else if (progress?.status === "IN_PROGRESS") {
                                             bgClass = "bg-blue-500 hover:bg-blue-600 text-white";
-                                        } else if (progress?.percentage > 0) {
+                                        } else if (progress && progress.percentage !== undefined && progress.percentage > 0) {
                                             bgClass = "bg-yellow-500 hover:bg-yellow-600 text-white";
                                         }
 

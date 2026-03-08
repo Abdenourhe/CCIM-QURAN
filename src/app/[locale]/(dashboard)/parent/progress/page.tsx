@@ -12,10 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Progress } from "@/components/ui/progress";
 import {
     Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+    SelectOption,
 } from "@/components/ui/select";
 import {
     getLinkedChildren,
@@ -178,36 +175,6 @@ export default function ParentProgressPage() {
     const [loading, setLoading] = useState(true);
     const [dateRange, setDateRange] = useState<string>("all");
 
-    useEffect(() => {
-        if (status === "unauthenticated") {
-            router.push(`/${locale}/login`);
-            return;
-        }
-
-        if (session?.user?.id) {
-            loadChildren();
-        }
-    }, [session, status, locale, router]);
-
-    useEffect(() => {
-        // Check if there's a child ID in URL params
-        const childParam = searchParams.get("child");
-        if (childParam && children.length > 0) {
-            const childExists = children.some(c => c.id === childParam);
-            if (childExists) {
-                setSelectedChildId(childParam);
-            }
-        } else if (children.length > 0 && !selectedChildId) {
-            setSelectedChildId(children[0].id);
-        }
-    }, [children, searchParams, selectedChildId]);
-
-    useEffect(() => {
-        if (selectedChildId && session?.user?.id) {
-            loadProgress(selectedChildId);
-        }
-    }, [selectedChildId, dateRange, session]);
-
     async function loadChildren() {
         if (!session?.user?.id) return;
 
@@ -231,6 +198,36 @@ export default function ParentProgressPage() {
             console.error("Error loading progress:", error);
         }
     }
+
+    useEffect(() => {
+        if (status === "unauthenticated") {
+            router.push(`/${locale}/login`);
+            return;
+        }
+
+        if (session?.user?.id) {
+            loadChildren();
+        }
+    }, [session, status, locale, router, loadChildren]);
+
+    useEffect(() => {
+        // Check if there's a child ID in URL params
+        const childParam = searchParams.get("child");
+        if (childParam && children.length > 0) {
+            const childExists = children.some(c => c.id === childParam);
+            if (childExists) {
+                setSelectedChildId(childParam);
+            }
+        } else if (children.length > 0 && !selectedChildId) {
+            setSelectedChildId(children[0].id);
+        }
+    }, [children, searchParams, selectedChildId]);
+
+    useEffect(() => {
+        if (selectedChildId && session?.user?.id) {
+            loadProgress(selectedChildId);
+        }
+    }, [selectedChildId, dateRange, session, loadProgress]);
 
     function handleChildSelect(childId: string) {
         setSelectedChildId(childId);
@@ -289,24 +286,20 @@ export default function ParentProgressPage() {
                         value={selectedChildId || ""}
                         onValueChange={handleChildSelect}
                     >
-                        <SelectTrigger className="w-48">
-                            <SelectValue placeholder={t.selectChild} />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {children.map((child) => (
-                                <SelectItem key={child.id} value={child.id}>
-                                    <div className="flex items-center gap-2">
-                                        <Avatar className="h-6 w-6">
-                                            <AvatarImage src={child.image || ""} />
-                                            <AvatarFallback className="text-xs">
-                                                {child.name?.charAt(0) || "?"}
-                                            </AvatarFallback>
-                                        </Avatar>
-                                        {child.name}
-                                    </div>
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
+                        <SelectOption value="">{t.selectChild}</SelectOption>
+                        {children.map((child) => (
+                            <SelectOption key={child.id} value={child.id}>
+                                <div className="flex items-center gap-2">
+                                    <Avatar className="h-6 w-6">
+                                        <AvatarImage src={child.image || ""} />
+                                        <AvatarFallback className="text-xs">
+                                            {child.name?.charAt(0) || "?"}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    {child.name}
+                                </div>
+                            </SelectOption>
+                        ))}
                     </Select>
                 </div>
             </div>

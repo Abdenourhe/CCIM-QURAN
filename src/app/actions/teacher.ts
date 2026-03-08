@@ -156,7 +156,7 @@ export async function getTeacherDashboardStats(teacherId: string): Promise<Teach
                 });
                 return {
                     id: student.id,
-                    user: student.user,
+                    user: (student as any).user,
                     group: teacherGroups.find(g => g.students.some(s => s.id === student.id)),
                     currentSurah: progress?.surahName || null,
                     progressPercentage: progress?.percentage || null,
@@ -208,7 +208,7 @@ export async function getTeacherDashboardStats(teacherId: string): Promise<Teach
                 total: totalAttendance,
                 percentage: totalAttendance > 0 ? Math.round((presentCount / totalAttendance) * 100) : 0,
             },
-            recentEvaluations: recentEvaluations.map(e => ({
+            recentEvaluations: recentEvaluations.map((e: any) => ({
                 id: e.id,
                 student: e.student.user,
                 memorizationScore: e.grade === "EXCELLENT" ? 95 : e.grade === "GOOD" ? 80 : e.grade === "AVERAGE" ? 65 : 50,
@@ -468,7 +468,7 @@ export async function getGroupDetails(groupId: string, includeStudents: boolean 
         if (!group) return null;
 
         const studentsWithProgress = includeStudents ? await Promise.all(
-            (group.students || []).map(async (student) => {
+            (group.students || []).map(async (student: any) => {
                 const progress = await prisma.progress.findFirst({
                     where: { studentId: student.id },
                     orderBy: { lastUpdated: "desc" },

@@ -386,19 +386,23 @@ export async function getStudentProgress(studentId: string): Promise<{
             currentSurah: currentSurah ? {
                 ...currentSurah,
                 surahNameAr: getSurahInfo(currentSurah.surahNumber).nameAr,
-                status: getStatusFromProgress(currentSurah)
-            } : undefined,
+                status: getStatusFromProgress(currentSurah),
+                lastUpdated: currentSurah.lastUpdated.toString(),
+                percentage: currentSurah.percentage,
+            } as SurahProgress : undefined,
             statistics: {
                 totalVersesMemorized,
                 averageScore,
                 memorizationSpeed,
                 bestStreak
             },
-            recentProgress: allProgress.slice(-10).reverse().map(p => ({
+            recentProgress: (allProgress.slice(-10).reverse().map(p => ({
                 ...p,
                 surahNameAr: getSurahInfo(p.surahNumber).nameAr,
-                status: getStatusFromProgress(p)
-            }))
+                status: getStatusFromProgress(p),
+                lastUpdated: p.lastUpdated.toString(),
+                percentage: p.percentage
+            })) as SurahProgress[])
         };
     } catch (error) {
         console.error("Error getting student progress:", error);
@@ -424,8 +428,10 @@ export async function getAllSurahProgress(studentId: string): Promise<SurahProgr
         return progress.map(p => ({
             ...p,
             surahNameAr: getSurahInfo(p.surahNumber).nameAr,
-            status: getStatusFromProgress(p)
-        }));
+            status: getStatusFromProgress(p),
+            lastUpdated: p.lastUpdated.toString(),
+            percentage: p.percentage
+        })) as SurahProgress[];
     } catch (error) {
         console.error("Error getting all surah progress:", error);
         return [];
@@ -509,8 +515,10 @@ export async function getSurahDetails(studentId: string, surahNumber: number): P
             progress: progress ? {
                 ...progress,
                 surahNameAr: getSurahInfo(progress.surahNumber).nameAr,
-                status: getStatusFromProgress(progress)
-            } : undefined,
+                status: getStatusFromProgress(progress),
+                lastUpdated: progress.lastUpdated.toString(),
+                percentage: progress.percentage
+            } as SurahProgress : undefined,
             evaluations: evaluations.map(e => ({
                 id: e.id,
                 date: e.evaluatedAt.toISOString(),
